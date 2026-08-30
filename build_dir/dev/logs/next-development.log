@@ -6,3 +6,17 @@
 {"timestamp":"00:00:00.457","source":"Server","level":"LOG","message":""}
 {"timestamp":"00:00:00.531","source":"Server","level":"LOG","message":""}
 {"timestamp":"00:00:08.215","source":"Server","level":"LOG","message":"✓ Compiled in 291ms"}
+{"timestamp":"00:01:53.180","source":"Browser","level":"WARN","message":"Image with src \"/images/musea.jpg\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:01:53.197","source":"Browser","level":"WARN","message":"Image with src \"/images/isro_geodata.jpg\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:01:53.212","source":"Browser","level":"WARN","message":"Image with src \"/images/elara.jpg\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:01:53.219","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/musea.jpg\\\" has \\\"fill\\\" but is missing \\\"sizes\\\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:01:53.219","source":"Browser","level":"WARN","message":"Image with src \"/images/verve.jpg\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:01:53.219","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/verve.jpg\\\" has \\\"fill\\\" but is missing \\\"sizes\\\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:01:53.219","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/isro_geodata.jpg\\\" has \\\"fill\\\" but is missing \\\"sizes\\\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:01:53.219","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/elara.jpg\\\" has \\\"fill\\\" but is missing \\\"sizes\\\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:02:01.691","source":"Browser","level":"WARN","message":"Image with src \"/images/heshva_portrait.jpg\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:02:01.692","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/images/heshva_portrait.jpg\\\" has \\\"fill\\\" but is missing \\\"sizes\\\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:02:02.809","source":"Server","level":"LOG","message":"✓ Compiled in 660ms"}
+{"timestamp":"00:02:08.975","source":"Server","level":"LOG","message":"✓ Compiled in 0ms"}
+{"timestamp":"00:02:14.457","source":"Server","level":"LOG","message":"✓ Compiled in 0ms"}
+{"timestamp":"00:02:49.325","source":"Server","level":"LOG","message":"✓ Compiled in 526ms"}

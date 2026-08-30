@@ -1,0 +1,3 @@
+module.exports=[32829,a=>{"use strict";var b=a.i(7997);a.s(["default",0,function({children:a}){return(0,b.jsx)(b.Fragment,{children:a})},"metadata",0,{title:"About Heshva Soni",description:"Learn about Heshva Soni's education at IAR Gandhinagar (B.Tech IT) & GTU, professional internships, Python & ML certifications, and research at SAC-ISRO.",alternates:{canonical:"https://heshvasoni.vercel.app/about"},openGraph:{title:"About Heshva Soni | AI & ML Engineer",description:"Education, career trajectory, and technical skills of Heshva Soni, Research Intern at SAC-ISRO.",url:"https://heshvasoni.vercel.app/about",images:["/images/heshva_portrait.jpg"]}}])},86797,function(a){a.n(a.i(32829))}];
+
+//# sourceMappingURL=app_about_layout_tsx_1xq361z._.js.map

@@ -4,6 +4,9 @@
   "/about/page": "/about",
   "/contact/page": "/contact",
   "/favicon.ico/route": "/favicon.ico",
+  "/icon.svg/route": "/icon.svg",
   "/page": "/",
-  "/projects/page": "/projects"
+  "/projects/page": "/projects",
+  "/robots.txt/route": "/robots.txt",
+  "/sitemap.xml/route": "/sitemap.xml"
 }
