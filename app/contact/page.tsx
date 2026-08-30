@@ -8,8 +8,6 @@ import {
   ArrowLeft,
   Mail,
   MapPin,
-  Globe,
-  Phone,
   Copy,
   Check,
   ArrowUpRight,
@@ -35,12 +33,6 @@ export default function ContactPage() {
       actionLabel: isCopied ? "Copied!" : "Copy",
     },
     {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 94298 11299",
-      href: "tel:+919429811299",
-    },
-    {
       icon: MapPin,
       label: "Location",
       value: "Ahmedabad, Gujarat, India",
@@ -60,12 +52,6 @@ export default function ContactPage() {
       handle: "github.com/Heshva",
       href: "https://github.com/Heshva",
       color: "hover:bg-[#221F1E] hover:text-white",
-    },
-    {
-      label: "Portfolio",
-      handle: "heshvasoni.vercel.app",
-      href: "https://heshvasoni.vercel.app",
-      color: "hover:bg-[#F99B8D] hover:text-[#221F1E]",
     },
   ];
 
@@ -105,7 +91,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Contact Details */}
+            {/* Contact Details (No phone number) */}
             <div className="mt-8 space-y-3">
               {contactItems.map(({ icon: Icon, label, value, href, action, actionLabel }) => (
                 <div
@@ -140,7 +126,7 @@ export default function ContactPage() {
             </div>
           </motion.div>
 
-          {/* Right: Mailto CTA + Socials */}
+          {/* Right: Mailto CTA + Socials (No hand emoji, no portfolio link) */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -160,7 +146,6 @@ export default function ContactPage() {
                   <span className="font-serif-italic italic font-normal text-[#F99B8D]">
                     Hello
                   </span>
-                  👋
                 </h2>
                 <p className="text-white/60 text-sm mt-3 leading-relaxed max-w-sm">
                   The best way to reach me is directly via email. I read every message and respond to opportunities that align with my work in ML, data, and AI research.
@@ -177,7 +162,7 @@ export default function ContactPage() {
                 </a>
                 <a
                   href="/Heshva_Soni_Resume.pdf"
-                  download
+                  download="Heshva_Soni_Resume.pdf"
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition-all text-sm border border-white/20"
                 >
                   <Download className="w-4 h-4" />
@@ -186,7 +171,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* Social Links (LinkedIn and GitHub only) */}
             <div className="bg-[#FBEFE9] rounded-[32px] p-6 card-shadow border border-[#F2DDD4]/60">
               <p className="text-xs font-bold uppercase tracking-wider text-[#221F1E]/60 mb-4">
                 Professional Profiles

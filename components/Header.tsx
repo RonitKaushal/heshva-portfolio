@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="w-full py-2.5 sm:py-3 px-2 sm:px-4 flex items-center justify-between shrink-0">
-      {/* Brand / Name Logo */}
+      {/* Brand / Name Logo in Italic */}
       <Link href="/" className="flex items-center gap-1.5 cursor-pointer select-none group">
         <motion.div
           initial={{ opacity: 0, x: -12 }}
@@ -35,8 +35,8 @@ export const Header: React.FC<HeaderProps> = ({
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex items-center gap-1.5"
         >
-          <span className="font-sans font-black text-xl sm:text-2xl tracking-widest text-[#221F1E]">
-            HESHVA SONI
+          <span className="font-serif-italic italic text-2xl sm:text-[28px] tracking-wide text-[#221F1E] font-normal transition-transform duration-300 group-hover:scale-105">
+            Heshva Soni
           </span>
         </motion.div>
       </Link>
@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({
               href={item.href}
               onClick={(e) => {
                 if (item.onClick) {
-                  // If handler provided and wanted modal, can proceed or navigate
+                  // If handler provided, can proceed or navigate
                 }
               }}
               onMouseEnter={() => setHoveredItem(item.label)}

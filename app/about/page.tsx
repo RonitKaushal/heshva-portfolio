@@ -14,7 +14,6 @@ import {
   Award,
   MapPin,
   Mail,
-  Phone,
   CheckCircle2,
   Download,
   ExternalLink,
@@ -140,21 +139,15 @@ export default function AboutPage() {
             </div>
 
             {/* Contact + Download CV */}
-            <div className="mt-6 pt-5 border-t border-[#ECD1C5] flex flex-wrap items-center gap-3">
-              <div className="flex flex-col gap-1.5">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#221F1E]">
-                  <Mail className="w-3.5 h-3.5 text-[#F99B8D]" />
-                  <span>heshvaasoni@gmail.com</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#221F1E]">
-                  <Phone className="w-3.5 h-3.5 text-[#F99B8D]" />
-                  <span>+91 94298 11299</span>
-                </div>
+            <div className="mt-6 pt-5 border-t border-[#ECD1C5] flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-2 text-xs font-semibold text-[#221F1E]">
+                <Mail className="w-3.5 h-3.5 text-[#F99B8D]" />
+                <span>heshvaasoni@gmail.com</span>
               </div>
-              <div className="ml-auto flex gap-2">
+              <div className="flex gap-2">
                 <a
                   href="/Heshva_Soni_Resume.pdf"
-                  download
+                  download="Heshva_Soni_Resume.pdf"
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#221F1E] hover:bg-[#F99B8D] text-white hover:text-[#221F1E] text-xs font-bold uppercase tracking-wider transition-all shadow-sm cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" />
@@ -342,7 +335,6 @@ export default function AboutPage() {
             {[
               { label: "LinkedIn", href: "https://www.linkedin.com/in/heshvaa", handle: "linkedin.com/in/heshvaa" },
               { label: "GitHub", href: "https://github.com/Heshva", handle: "github.com/Heshva" },
-              { label: "Portfolio", href: "https://heshvasoni.vercel.app", handle: "heshvasoni.vercel.app" },
             ].map((s) => (
               <a
                 key={s.label}

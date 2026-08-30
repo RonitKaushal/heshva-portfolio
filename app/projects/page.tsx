@@ -9,8 +9,6 @@ import {
   ArrowLeft,
   ArrowUpRight,
   CheckCircle2,
-  Calendar,
-  ExternalLink,
   Package,
   GitFork,
   Sparkles,
@@ -119,7 +117,7 @@ export default function ProjectsPage() {
           </div>
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid (Clean card layout without images or years) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedTag}
@@ -136,119 +134,97 @@ export default function ProjectsPage() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="group bg-[#FBEFE9] rounded-[32px] overflow-hidden card-shadow card-hover-shadow border border-[#F2DDD4]/60 flex flex-col"
+                className="group bg-[#FBEFE9] rounded-[32px] p-7 sm:p-8 card-shadow card-hover-shadow border border-[#F2DDD4]/60 flex flex-col justify-between"
               >
-                {/* Card Image + Category badge */}
-                <div
-                  onClick={() => setActiveProject(project)}
-                  className="relative w-full aspect-[16/9] bg-[#F5E5DC] cursor-pointer overflow-hidden"
-                >
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#221F1E]/70 via-[#221F1E]/10 to-transparent" />
-
-                  {/* Category badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-[#F99B8D] text-[#221F1E] text-[11px] font-bold uppercase tracking-wider shadow-sm">
-                      {project.category}
-                    </span>
-                  </div>
-
-                  {/* Links top-right */}
-                  <div className="absolute top-4 right-4 flex gap-2">
-                    {project.pypi && (
-                      <a
-                        href={project.pypi}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-2 rounded-full bg-white/40 backdrop-blur-md text-[#221F1E] hover:bg-[#F99B8D] transition-colors"
-                        title="View on PyPI"
-                      >
-                        <Package className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-2 rounded-full bg-white/40 backdrop-blur-md text-[#221F1E] hover:bg-[#F99B8D] transition-colors"
-                        title="View on GitHub"
-                      >
-                        <GitFork className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    <button
-                      onClick={() => setActiveProject(project)}
-                      className="p-2 rounded-full bg-white/40 backdrop-blur-md text-[#221F1E] hover:bg-white transition-colors"
-                    >
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-
-                  {/* Bottom overlay name */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="flex items-center gap-2 text-white/60 text-[11px] font-semibold">
-                      <Calendar className="w-3 h-3" />
-                      <span>{project.timeline}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-6 sm:p-7 flex-1 flex flex-col gap-4">
-                  <div>
-                    <div className="flex items-start justify-between gap-2 mb-1">
-                      <h3 className="text-xl font-black text-[#221F1E] leading-tight">{project.name}</h3>
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#F99B8D] shrink-0 mt-0.5 border border-[#F99B8D]/40 rounded-full px-2 py-0.5">
+                <div>
+                  {/* Top Bar: Category + Role Badge + Action links */}
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="px-3 py-1 rounded-full bg-[#F99B8D] text-[#221F1E] text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                        {project.category}
+                      </span>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#221F1E]/60 border border-[#ECD1C5] bg-[#FDF7F3] rounded-full px-2.5 py-0.5">
                         {project.role}
                       </span>
                     </div>
-                    <p className="text-[13px] text-[#2A2321]/85 leading-relaxed mt-2">
-                      {project.description}
-                    </p>
+
+                    <div className="flex items-center gap-2">
+                      {project.pypi && (
+                        <a
+                          href={project.pypi}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-xl bg-[#F4E1D7] text-[#221F1E] hover:bg-[#F99B8D] transition-colors"
+                          title="View on PyPI"
+                        >
+                          <Package className="w-4 h-4" />
+                        </a>
+                      )}
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-xl bg-[#F4E1D7] text-[#221F1E] hover:bg-[#F99B8D] transition-colors"
+                          title="View on GitHub"
+                        >
+                          <GitFork className="w-4 h-4" />
+                        </a>
+                      )}
+                      <button
+                        onClick={() => setActiveProject(project)}
+                        className="p-2 rounded-xl bg-[#F4E1D7] text-[#221F1E] hover:bg-[#221F1E] hover:text-white transition-colors"
+                        title="View Details"
+                      >
+                        <ArrowUpRight className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
 
-                  {/* Highlights */}
-                  <div className="space-y-2">
-                    {project.highlights.slice(0, 3).map((h, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-[#2A2321]/80">
+                  {/* Project Name */}
+                  <h3
+                    onClick={() => setActiveProject(project)}
+                    className="text-2xl font-black text-[#221F1E] cursor-pointer group-hover:text-[#F99B8D] transition-colors mt-2"
+                  >
+                    {project.name}
+                  </h3>
+
+                  {/* Project Description */}
+                  <p className="text-sm text-[#2A2321]/85 leading-relaxed mt-3">
+                    {project.description}
+                  </p>
+
+                  {/* Key Highlights */}
+                  <div className="mt-5 space-y-2">
+                    {project.highlights.map((h, i) => (
+                      <div key={i} className="flex items-start gap-2.5 text-xs text-[#2A2321]/80">
                         <CheckCircle2 className="w-3.5 h-3.5 text-[#F99B8D] shrink-0 mt-0.5" />
                         <span>{h}</span>
                       </div>
                     ))}
                   </div>
+                </div>
 
-                  {/* Tags + Action */}
-                  <div className="mt-auto pt-4 border-t border-[#ECD1C5] flex items-center justify-between flex-wrap gap-2">
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tags.slice(0, 4).map((t) => (
-                        <span
-                          key={t}
-                          className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${getTagClass(t)}`}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                      {project.tags.length > 4 && (
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold border bg-[#F4E1D7] text-[#221F1E]/60 border-[#ECD1C5]">
-                          +{project.tags.length - 4}
-                        </span>
-                      )}
-                    </div>
-                    <button
-                      onClick={() => setActiveProject(project)}
-                      className="text-xs font-bold uppercase tracking-wider text-[#221F1E] hover:text-[#F99B8D] flex items-center gap-1 cursor-pointer transition-colors"
-                    >
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>Details</span>
-                    </button>
+                {/* Bottom Tags + Inspect CTA */}
+                <div className="mt-6 pt-5 border-t border-[#ECD1C5] flex items-center justify-between flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tags.map((t) => (
+                      <span
+                        key={t}
+                        className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold border ${getTagClass(t)}`}
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
+
+                  <button
+                    onClick={() => setActiveProject(project)}
+                    className="text-xs font-bold uppercase tracking-wider text-[#221F1E] hover:text-[#F99B8D] flex items-center gap-1 cursor-pointer transition-colors"
+                  >
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>View Modal</span>
+                  </button>
                 </div>
               </motion.article>
             ))}
@@ -262,7 +238,7 @@ export default function ProjectsPage() {
         )}
       </div>
 
-      {/* Project Detail Modal */}
+      {/* Project Detail Modal (Clean typography without images or years) */}
       <AnimatePresence>
         {activeProject && (
           <motion.div
@@ -273,70 +249,49 @@ export default function ProjectsPage() {
             className="fixed inset-0 z-50 bg-[#221F1E]/60 backdrop-blur-sm flex items-center justify-center p-4"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.93, y: 20 }}
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.93, y: 20 }}
+              exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#FBEFE9] rounded-[32px] max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+              className="bg-[#FBEFE9] rounded-[32px] max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-7 sm:p-9 border border-[#F2DDD4]"
             >
-              {/* Modal Image */}
-              <div className="relative w-full aspect-[16/8] overflow-hidden rounded-t-[32px]">
-                <img
-                  src={activeProject.image}
-                  alt={activeProject.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#221F1E]/75 via-transparent to-transparent" />
+              {/* Modal Header */}
+              <div className="flex items-start justify-between gap-4 border-b border-[#ECD1C5] pb-5">
+                <div>
+                  <span className="px-3 py-1 rounded-full bg-[#F99B8D] text-[#221F1E] text-xs font-bold uppercase tracking-wider">
+                    {activeProject.category}
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-black text-[#221F1E] mt-2">
+                    {activeProject.name}
+                  </h2>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#221F1E]/60 mt-1">
+                    {activeProject.role}
+                  </p>
+                </div>
+
                 <button
                   onClick={() => setActiveProject(null)}
-                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/25 backdrop-blur text-white hover:bg-white hover:text-[#221F1E] transition-colors flex items-center justify-center font-bold text-lg"
+                  className="w-9 h-9 rounded-full bg-[#F4E1D7] text-[#221F1E] hover:bg-[#221F1E] hover:text-white transition-colors flex items-center justify-center font-bold text-lg cursor-pointer shrink-0"
                 >
                   ×
                 </button>
-                <div className="absolute bottom-5 left-6 right-6">
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#F99B8D] text-[#221F1E] text-[11px] font-bold uppercase tracking-wide">
-                    {activeProject.category}
-                  </span>
-                  <h2 className="text-2xl font-black text-white mt-1">{activeProject.name}</h2>
-                </div>
               </div>
 
               {/* Modal Body */}
-              <div className="p-7 flex flex-col gap-5">
-                <div className="flex items-center justify-between flex-wrap gap-3">
-                  <span className="text-xs font-bold text-[#221F1E]/70 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-[#F99B8D]" /> {activeProject.timeline}
-                  </span>
-                  <div className="flex gap-2">
-                    {activeProject.pypi && (
-                      <a
-                        href={activeProject.pypi}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 px-3 py-1.5 bg-[#F99B8D] hover:bg-[#F88A7A] text-[#221F1E] text-xs font-bold rounded-lg transition-colors"
-                      >
-                        <Package className="w-3.5 h-3.5" /> View on PyPI
-                      </a>
-                    )}
-                    {activeProject.github && (
-                      <a
-                        href={activeProject.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 px-3 py-1.5 bg-[#F4E1D7] hover:bg-[#ECD1C5] text-[#221F1E] text-xs font-bold rounded-lg transition-colors"
-                      >
-                        <GitFork className="w-3.5 h-3.5" /> GitHub
-                      </a>
-                    )}
-                  </div>
+              <div className="py-6 flex flex-col gap-6">
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#221F1E]/70 mb-2">
+                    About the Project
+                  </h4>
+                  <p className="text-sm sm:text-base text-[#2A2321]/90 leading-relaxed">
+                    {activeProject.description}
+                  </p>
                 </div>
-
-                <p className="text-sm text-[#2A2321]/90 leading-relaxed">{activeProject.description}</p>
 
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-[#221F1E]/70 mb-3 flex items-center gap-1.5">
-                    <Zap className="w-3.5 h-3.5 text-[#F99B8D]" /> Key Highlights
+                    <Zap className="w-3.5 h-3.5 text-[#F99B8D]" /> Key Deliverables & Highlights
                   </h4>
                   <div className="space-y-2.5">
                     {activeProject.highlights.map((h, i) => (
@@ -350,7 +305,7 @@ export default function ProjectsPage() {
 
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-[#221F1E]/70 mb-3">
-                    Tech Stack
+                    Technologies & Frameworks
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {activeProject.tags.map((t) => (
@@ -363,6 +318,39 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 </div>
+              </div>
+
+              {/* Modal Footer with Actions */}
+              <div className="pt-5 border-t border-[#ECD1C5] flex items-center justify-between flex-wrap gap-3">
+                <div className="flex gap-2">
+                  {activeProject.pypi && (
+                    <a
+                      href={activeProject.pypi}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-4 py-2 bg-[#F99B8D] hover:bg-[#F88A7A] text-[#221F1E] text-xs font-bold rounded-xl transition-colors"
+                    >
+                      <Package className="w-3.5 h-3.5" /> View on PyPI
+                    </a>
+                  )}
+                  {activeProject.github && (
+                    <a
+                      href={activeProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-4 py-2 bg-[#221F1E] text-white hover:bg-[#F99B8D] hover:text-[#221F1E] text-xs font-bold rounded-xl transition-colors"
+                    >
+                      <GitFork className="w-3.5 h-3.5" /> GitHub Repo
+                    </a>
+                  )}
+                </div>
+
+                <button
+                  onClick={() => setActiveProject(null)}
+                  className="px-4 py-2 rounded-xl bg-[#F4E1D7] hover:bg-[#ECD1C5] text-xs font-bold text-[#221F1E] transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
               </div>
             </motion.div>
           </motion.div>

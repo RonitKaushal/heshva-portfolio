@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sparkles, CheckCircle2 } from "lucide-react";
 import { projectsData } from "@/lib/data";
 
 export const ProjectsCard: React.FC = () => {
@@ -20,8 +19,8 @@ export const ProjectsCard: React.FC = () => {
       transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
       className="relative w-full h-full bg-[#FBEFE9] rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 md:p-7 flex flex-col justify-between card-shadow card-hover-shadow border border-[#F2DDD4]/60 overflow-hidden"
     >
-      {/* Active Header: Name + Arrow */}
-      <div className="flex items-center justify-between cursor-pointer group mb-3 select-none">
+      {/* Active Header: Name + Category */}
+      <div className="flex items-start justify-between cursor-pointer group mb-2 select-none">
         <Link href={`/projects#${activeProject.id}`} className="flex flex-col">
           <motion.h3
             key={activeProject.id}
@@ -31,66 +30,93 @@ export const ProjectsCard: React.FC = () => {
           >
             {activeProject.name}
           </motion.h3>
-          <motion.p
+          <motion.span
             key={`${activeProject.id}-cat`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-[11px] text-[#221F1E]/50 font-medium mt-0.5"
+            className="text-[11px] font-bold uppercase tracking-wider text-[#F99B8D] mt-0.5"
           >
             {activeProject.category}
-          </motion.p>
+          </motion.span>
         </Link>
         <Link
-          href="/projects"
-          className="p-1 text-[#221F1E] group-hover:text-[#F99B8D] transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:-translate-y-1"
+          href={`/projects#${activeProject.id}`}
+          className="p-1.5 rounded-full bg-[#F4E1D7] text-[#221F1E] group-hover:bg-[#F99B8D] transition-all duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         >
-          <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[1.8]" />
+          <ArrowUpRight className="w-4 h-4 stroke-[2]" />
         </Link>
       </div>
 
-      {/* Featured Image */}
+      {/* Featured Project Preview (Clean Minimalist Text & Tech Stack - No Image) */}
       <Link
         href={`/projects#${activeProject.id}`}
-        className="relative w-full flex-1 min-h-[140px] max-h-[220px] rounded-2xl overflow-hidden cursor-pointer group/img border border-[#F0DDD4]/70 bg-[#F5E5DC]"
+        className="relative w-full flex-1 p-4 sm:p-5 rounded-2xl cursor-pointer group/card border border-[#ECD1C5] bg-[#F5E5DC]/80 hover:bg-[#F5E5DC] transition-all duration-300 flex flex-col justify-between overflow-hidden"
       >
         <AnimatePresence mode="wait">
           <motion.div
             key={activeProject.id}
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.45, ease: "easeInOut" }}
-            className="relative w-full h-full"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.35 }}
+            className="flex flex-col justify-between h-full gap-3"
           >
-            <Image
-              src={activeProject.image}
-              alt={activeProject.name}
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover object-center transition-transform duration-700 ease-out group-hover/img:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#221F1E]/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-3 sm:p-4">
-              <span className="text-[11px] sm:text-xs font-semibold text-white/95 tracking-wide bg-[#221F1E]/50 backdrop-blur-md px-3 py-1 rounded-full">
-                {activeProject.role} · View Details
+            <div>
+              <p className="text-xs sm:text-[13px] text-[#2A2321]/85 leading-relaxed line-clamp-3">
+                {activeProject.description}
+              </p>
+
+              {/* Highlights snippet */}
+              <div className="mt-2.5 space-y-1">
+                {activeProject.highlights.slice(0, 2).map((h, idx) => (
+                  <div key={idx} className="flex items-start gap-1.5 text-[11.5px] text-[#2A2321]/80">
+                    <CheckCircle2 className="w-3 h-3 text-[#F99B8D] shrink-0 mt-0.5" />
+                    <span className="line-clamp-1">{h}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tag Pills */}
+            <div className="flex items-center justify-between pt-2 border-t border-[#ECD1C5]/70">
+              <div className="flex flex-wrap gap-1">
+                {activeProject.tags.slice(0, 3).map((t) => (
+                  <span
+                    key={t}
+                    className="px-2 py-0.5 bg-[#FDF7F3] rounded-md text-[10px] font-bold text-[#221F1E]/80 border border-[#ECD1C5]"
+                  >
+                    {t}
+                  </span>
+                ))}
+                {activeProject.tags.length > 3 && (
+                  <span className="px-1.5 py-0.5 text-[10px] font-bold text-[#221F1E]/50">
+                    +{activeProject.tags.length - 3}
+                  </span>
+                )}
+              </div>
+
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#F99B8D] flex items-center gap-1 group-hover/card:translate-x-0.5 transition-transform">
+                <Sparkles className="w-3 h-3" />
+                <span>Explore</span>
               </span>
             </div>
           </motion.div>
         </AnimatePresence>
       </Link>
 
-      {/* Other Projects List */}
-      <div className="mt-3 sm:mt-4 flex flex-col justify-end">
+      {/* Other Projects List (No years displayed) */}
+      <div className="mt-3 flex flex-col justify-end">
         {inactiveProjects.map((proj, idx) => (
           <div key={proj.id} className="flex flex-col">
             <button
               onClick={() => setActiveId(proj.id)}
-              className="w-full py-2.5 sm:py-3 flex items-center justify-between text-left group cursor-pointer transition-colors"
+              className="w-full py-2 flex items-center justify-between text-left group cursor-pointer transition-colors"
             >
-              <span className="text-sm sm:text-base font-bold text-[#221F1E]/90 group-hover:text-[#221F1E] group-hover:translate-x-1 transition-all duration-200">
+              <span className="text-xs sm:text-sm font-bold text-[#221F1E]/80 group-hover:text-[#221F1E] group-hover:translate-x-1 transition-all duration-200">
                 {proj.name}
               </span>
-              <span className="text-[11px] sm:text-xs font-medium text-[#221F1E]/40 group-hover:text-[#F99B8D] transition-colors">
-                {proj.timeline.split(" ")[0]}
+              <span className="text-[10.5px] font-semibold text-[#221F1E]/50 group-hover:text-[#F99B8D] transition-colors">
+                {proj.category.split("·")[0].trim()}
               </span>
             </button>
             {idx < inactiveProjects.length - 1 && (

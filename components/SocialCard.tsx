@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 interface SocialLink {
   label: string;
   href: string;
-  handle: string;
+  isEmail?: boolean;
 }
 
 export const SocialCard: React.FC = () => {
@@ -16,25 +16,24 @@ export const SocialCard: React.FC = () => {
     {
       label: "LINKEDIN",
       href: "https://www.linkedin.com/in/heshvaa",
-      handle: "linkedin.com/in/heshvaa",
     },
     {
       label: "GITHUB",
       href: "https://github.com/Heshva",
-      handle: "github.com/Heshva",
     },
     {
-      label: "PORTFOLIO",
-      href: "https://heshvasoni.vercel.app",
-      handle: "heshvasoni.vercel.app",
+      label: "EMAIL",
+      href: "mailto:heshvaasoni@gmail.com",
+      isEmail: true,
     },
   ];
 
   const handleClick = (social: SocialLink, e: React.MouseEvent) => {
-    // If clicked on desktop/mobile, opens link and provides subtle copy hint
-    navigator.clipboard?.writeText(social.href);
-    setCopiedHandle(social.label);
-    setTimeout(() => setCopiedHandle(null), 2000);
+    if (social.isEmail) {
+      navigator.clipboard?.writeText("heshvaasoni@gmail.com");
+      setCopiedHandle(social.label);
+      setTimeout(() => setCopiedHandle(null), 2000);
+    }
   };
 
   return (
@@ -49,12 +48,12 @@ export const SocialCard: React.FC = () => {
           key={social.label}
           href={social.href}
           onClick={(e) => handleClick(social, e)}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={social.isEmail ? undefined : "_blank"}
+          rel={social.isEmail ? undefined : "noopener noreferrer"}
           className="relative font-sans text-xs sm:text-[13px] font-bold tracking-[0.14em] text-[#221F1E]/80 hover:text-[#221F1E] transition-colors py-1 group cursor-pointer"
         >
           <span className="relative z-10 transition-transform inline-block group-hover:scale-105">
-            {copiedHandle === social.label ? "COPIED URL!" : social.label}
+            {copiedHandle === social.label ? "COPIED EMAIL!" : social.label}
           </span>
           <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#F99B8D] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
         </a>
