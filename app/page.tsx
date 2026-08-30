@@ -6,7 +6,7 @@ import { HeroTitleCard } from "@/components/HeroTitleCard";
 import { PortraitCard } from "@/components/PortraitCard";
 import { BioCard } from "@/components/BioCard";
 import { ContactCard } from "@/components/ContactCard";
-import { ProjectsCard, ProjectItem, projectsData } from "@/components/ProjectsCard";
+import { ProjectsCard, ProjectItem, experiencesData } from "@/components/ProjectsCard";
 import { SocialCard } from "@/components/SocialCard";
 import { ContactModal } from "@/components/ContactModal";
 import { ProjectModal } from "@/components/ProjectModal";
@@ -18,7 +18,7 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   const handleOpenProjects = () => {
-    setSelectedProject(projectsData[0]);
+    setSelectedProject(experiencesData[0]);
   };
 
   return (

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Check, Send, Mail, MapPin, Sparkles } from "lucide-react";
+import { X, Check, Send, Mail, MapPin } from "lucide-react";
 import confetti from "canvas-confetti";
 
 interface ContactModalProps {
@@ -35,7 +35,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard?.writeText("hello@juliahuang.design");
+    navigator.clipboard?.writeText("heshvasoni1006@gmail.com");
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
@@ -75,10 +75,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 Get In Touch
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-[#221F1E] mt-1">
-                Let&apos;s Create Together
+                Let&apos;s Connect
               </h3>
               <p className="text-sm text-[#221F1E]/70 mt-1">
-                Collaborations, architectural AI commissions, or speaking inquiries.
+                ML research collaborations, data engineering projects, or opportunities.
               </p>
             </div>
 
@@ -86,7 +86,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             <div className="mb-6 p-3.5 bg-[#F4E1D7] rounded-2xl flex items-center justify-between">
               <div className="flex items-center gap-2.5 text-xs sm:text-sm font-medium text-[#221F1E]">
                 <Mail className="w-4 h-4 text-[#F99B8D]" />
-                <span>hello@juliahuang.design</span>
+                <span>heshvasoni1006@gmail.com</span>
               </div>
               <button
                 type="button"
@@ -109,7 +109,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 </div>
                 <h4 className="text-xl font-bold text-[#221F1E]">Message Sent!</h4>
                 <p className="text-sm text-[#221F1E]/70 max-w-xs">
-                  Thank you for reaching out. Julia will get back to you shortly.
+                  Thank you for reaching out. Heshva will get back to you shortly.
                 </p>
               </motion.div>
             ) : (
@@ -123,7 +123,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Jane Doe"
+                    placeholder="Alex Smith"
                     className="w-full px-4 py-3 bg-[#FDF7F3] border border-[#ECD1C5] rounded-xl text-sm text-[#221F1E] placeholder:text-[#221F1E]/35 focus:outline-none focus:border-[#F99B8D] focus:ring-1 focus:ring-[#F99B8D] transition-all"
                   />
                 </div>
@@ -137,7 +137,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="jane@example.com"
+                    placeholder="alex@example.com"
                     className="w-full px-4 py-3 bg-[#FDF7F3] border border-[#ECD1C5] rounded-xl text-sm text-[#221F1E] placeholder:text-[#221F1E]/35 focus:outline-none focus:border-[#F99B8D] focus:ring-1 focus:ring-[#F99B8D] transition-all"
                   />
                 </div>
@@ -150,7 +150,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell me about your project or idea..."
+                    placeholder="Tell me about your project, idea or inquiry..."
                     className="w-full px-4 py-3 bg-[#FDF7F3] border border-[#ECD1C5] rounded-xl text-sm text-[#221F1E] placeholder:text-[#221F1E]/35 focus:outline-none focus:border-[#F99B8D] focus:ring-1 focus:ring-[#F99B8D] transition-all resize-none"
                   />
                 </div>

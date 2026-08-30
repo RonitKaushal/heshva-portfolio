@@ -13,14 +13,26 @@ export const SocialCard: React.FC = () => {
   const [copiedHandle, setCopiedHandle] = useState<string | null>(null);
 
   const socials: SocialLink[] = [
-    { label: "INSTAGRAM", href: "https://instagram.com", handle: "@juliahuang.ai" },
-    { label: "TWITTER", href: "https://twitter.com", handle: "@juliahuang" },
-    { label: "LINKEDIN", href: "https://linkedin.com", handle: "julia-huang-ai" },
+    {
+      label: "LINKEDIN",
+      href: "https://www.linkedin.com/in/heshvaa",
+      handle: "linkedin.com/in/heshvaa",
+    },
+    {
+      label: "GITHUB",
+      href: "https://github.com/heshvaa",
+      handle: "github.com/heshvaa",
+    },
+    {
+      label: "PORTFOLIO",
+      href: "https://heshvasoni.vercel.app",
+      handle: "heshvasoni.vercel.app",
+    },
   ];
 
   const handleClick = (social: SocialLink, e: React.MouseEvent) => {
-    e.preventDefault();
-    navigator.clipboard?.writeText(social.handle);
+    // If clicked on desktop/mobile, opens link and provides subtle copy hint
+    navigator.clipboard?.writeText(social.href);
     setCopiedHandle(social.label);
     setTimeout(() => setCopiedHandle(null), 2000);
   };
@@ -39,10 +51,10 @@ export const SocialCard: React.FC = () => {
           onClick={(e) => handleClick(social, e)}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative font-sans text-xs sm:text-[13px] font-bold tracking-[0.14em] text-[#221F1E]/80 hover:text-[#221F1E] transition-colors py-1 group"
+          className="relative font-sans text-xs sm:text-[13px] font-bold tracking-[0.14em] text-[#221F1E]/80 hover:text-[#221F1E] transition-colors py-1 group cursor-pointer"
         >
           <span className="relative z-10 transition-transform inline-block group-hover:scale-105">
-            {copiedHandle === social.label ? "COPIED!" : social.label}
+            {copiedHandle === social.label ? "COPIED URL!" : social.label}
           </span>
           <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#F99B8D] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
         </a>

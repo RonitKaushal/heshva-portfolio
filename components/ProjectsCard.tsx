@@ -9,47 +9,73 @@ export interface ProjectItem {
   id: string;
   name: string;
   category: string;
+  role: string;
+  timeline: string;
   image: string;
-  year: string;
   description: string;
+  highlights: string[];
 }
 
-export const projectsData: ProjectItem[] = [
+export const experiencesData: ProjectItem[] = [
   {
-    id: "musea",
-    name: "Musea",
-    category: "Surreal Architecture & Spatial AI",
+    id: "isro",
+    name: "SAC-ISRO",
+    category: "Space Applications Centre",
+    role: "Research Intern",
+    timeline: "June 2026 - Present",
+    image: "/images/isro_geodata.jpg",
+    description:
+      "Conducting research in AI/ML algorithms and Time Series Analysis for Geodata and satellite observation datasets at the Space Applications Centre, ISRO.",
+    highlights: [
+      "Time Series Analysis on satellite observation datasets",
+      "Developing Machine Learning pipelines in Python",
+      "Geospatial data extraction and deep feature representation",
+    ],
+  },
+  {
+    id: "infolabz",
+    name: "InfoLabz",
+    category: "Python & Machine Learning",
+    role: "Intern",
+    timeline: "July 2023 - August 2023",
     image: "/images/musea.jpg",
-    year: "2025",
     description:
-      "A dreamlike architectural exploration blending plush organic textures with ethereal atmospheric clouds and soft dawn illumination.",
+      "Specialized in Python data processing pipelines, predictive modeling, and applied Machine Learning architectures for data analysis.",
+    highlights: [
+      "Built predictive machine learning models in Python",
+      "Implemented automated data cleaning and transformation workflows",
+      "Applied statistical analysis on production datasets",
+    ],
   },
   {
-    id: "elara",
-    name: "Elara",
-    category: "Bio-Pavilion Systems",
-    image: "/images/elara.jpg",
-    year: "2025",
-    description:
-      "Futuristic bio-architectural pavilion featuring fluid curved crystal geometries and responsive glowing light frameworks.",
-  },
-  {
-    id: "verve",
-    name: "Verve",
-    category: "Sculptural Interiors",
+    id: "techno-it",
+    name: "Techno IT Hub",
+    category: "Software & Data Engineering",
+    role: "Intern",
+    timeline: "September 2022 - May 2023",
     image: "/images/verve.jpg",
-    year: "2024",
     description:
-      "Minimalist vaulted spaces rendered with tactile pink plaster arches and sculptural backlit stone pedestals.",
+      "Hands-on full-lifecycle software development and database optimization across multiple client projects during a 9-month professional internship.",
+    highlights: [
+      "Developed backend logic and data endpoints",
+      "Optimized query performance and application reliability",
+      "Collaborated in agile team sprints and version control",
+    ],
   },
   {
-    id: "zephyr",
-    name: "Zephyr",
-    category: "Floating Sanctuary",
-    image: "/images/zephyr.jpg",
-    year: "2024",
+    id: "geodata-ai",
+    name: "Geodata AI",
+    category: "AI/ML Geodata Analysis",
+    role: "Core Project & Certification",
+    timeline: "2024 - 2026",
+    image: "/images/elara.jpg",
     description:
-      "An ethereal floating pavilion resting over tranquil reflective waters under soft pastel twilight sky.",
+      "Advanced spatial analytics and machine learning system for processing temporal earth observation data and automated pattern classification.",
+    highlights: [
+      "Automated time-series classification algorithms",
+      "Interactive data visualization with Python & open-source stacks",
+      "Certified in AI/ML for Geodata Analysis",
+    ],
   },
 ];
 
@@ -58,17 +84,17 @@ interface ProjectsCardProps {
 }
 
 export const ProjectsCard: React.FC<ProjectsCardProps> = ({ onSelectProject }) => {
-  const [activeProjectId, setActiveProjectId] = useState<string>("musea");
+  const [activeId, setActiveId] = useState<string>("isro");
 
-  const activeProject =
-    projectsData.find((p) => p.id === activeProjectId) || projectsData[0];
-  const inactiveProjects = projectsData.filter((p) => p.id !== activeProjectId);
+  const activeExperience =
+    experiencesData.find((p) => p.id === activeId) || experiencesData[0];
+  const inactiveExperiences = experiencesData.filter((p) => p.id !== activeId);
 
-  const handleProjectClick = (project: ProjectItem) => {
-    if (activeProjectId === project.id) {
-      if (onSelectProject) onSelectProject(project);
+  const handleItemClick = (item: ProjectItem) => {
+    if (activeId === item.id) {
+      if (onSelectProject) onSelectProject(item);
     } else {
-      setActiveProjectId(project.id);
+      setActiveId(item.id);
     }
   };
 
@@ -79,19 +105,19 @@ export const ProjectsCard: React.FC<ProjectsCardProps> = ({ onSelectProject }) =
       transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
       className="relative w-full bg-[#FBEFE9] rounded-[28px] sm:rounded-[32px] p-6 sm:p-7 md:p-8 flex flex-col card-shadow card-hover-shadow border border-[#F2DDD4]/60 overflow-hidden"
     >
-      {/* Active Project Header: Title + Arrow */}
+      {/* Active Header: Name + Arrow */}
       <div
-        onClick={() => onSelectProject?.(activeProject)}
+        onClick={() => onSelectProject?.(activeExperience)}
         className="flex items-center justify-between cursor-pointer group mb-4 select-none"
       >
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col">
           <motion.h3
-            key={activeProject.id}
+            key={activeExperience.id}
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-xl sm:text-2xl font-bold text-[#221F1E] tracking-tight group-hover:text-[#F99B8D] transition-colors duration-300"
           >
-            {activeProject.name}
+            {activeExperience.name}
           </motion.h3>
         </div>
         <div className="p-1 text-[#221F1E] group-hover:text-[#F99B8D] transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:-translate-y-1">
@@ -99,14 +125,14 @@ export const ProjectsCard: React.FC<ProjectsCardProps> = ({ onSelectProject }) =
         </div>
       </div>
 
-      {/* Featured Project Image Container */}
+      {/* Featured Artwork/Image Container */}
       <div
-        onClick={() => onSelectProject?.(activeProject)}
+        onClick={() => onSelectProject?.(activeExperience)}
         className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden cursor-pointer group/img border border-[#F0DDD4]/70 bg-[#F5E5DC]"
       >
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeProject.id}
+            key={activeExperience.id}
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
@@ -114,38 +140,38 @@ export const ProjectsCard: React.FC<ProjectsCardProps> = ({ onSelectProject }) =
             className="relative w-full h-full"
           >
             <Image
-              src={activeProject.image}
-              alt={activeProject.name}
+              src={activeExperience.image}
+              alt={activeExperience.name}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover object-center transition-transform duration-700 ease-out group-hover/img:scale-105"
             />
             {/* Soft overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#221F1E]/30 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <span className="text-xs font-semibold text-white/95 tracking-wide bg-[#221F1E]/40 backdrop-blur-md px-3 py-1 rounded-full">
-                View Project Details
+            <div className="absolute inset-0 bg-gradient-to-t from-[#221F1E]/40 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span className="text-xs font-semibold text-white/95 tracking-wide bg-[#221F1E]/50 backdrop-blur-md px-3 py-1 rounded-full">
+                {activeExperience.role} • View Details
               </span>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Other Projects Accordion List */}
+      {/* Other Experiences / Projects List */}
       <div className="mt-5 flex flex-col">
-        {inactiveProjects.map((project, idx) => (
-          <div key={project.id} className="flex flex-col">
+        {inactiveExperiences.map((exp, idx) => (
+          <div key={exp.id} className="flex flex-col">
             <button
-              onClick={() => handleProjectClick(project)}
+              onClick={() => handleItemClick(exp)}
               className="w-full py-3.5 flex items-center justify-between text-left group cursor-pointer transition-colors"
             >
               <span className="text-base sm:text-lg font-bold text-[#221F1E]/90 group-hover:text-[#221F1E] group-hover:translate-x-1 transition-all duration-200">
-                {project.name}
+                {exp.name}
               </span>
               <span className="text-xs font-medium text-[#221F1E]/40 group-hover:text-[#F99B8D] transition-colors">
-                {project.year}
+                {exp.timeline.split(" ")[0]}
               </span>
             </button>
-            {idx < inactiveProjects.length - 1 && (
+            {idx < inactiveExperiences.length - 1 && (
               <div className="w-full h-[1px] bg-[#EEDBD2]" />
             )}
           </div>

@@ -26,14 +26,14 @@ export const HeroTitleCard: React.FC = () => {
       {/* Main Title Heading */}
       <div className="relative z-10 select-none">
         <h1 className="text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] leading-[1.08] font-extrabold text-[#221F1E] tracking-tight">
-          <span className="block font-black">Artist Redefining</span>
+          <span className="block font-black">Building Smart</span>
           <span className="block my-0.5">
             <span className="font-serif-italic italic font-normal text-[1.12em] tracking-normal text-[#2A2321] pr-1.5 inline-block transition-transform duration-300 group-hover:translate-x-1">
-              Architecture
+              Solutions
             </span>{" "}
             <span className="font-black">with</span>
           </span>
-          <span className="block font-black">AI-Driven Design</span>
+          <span className="block font-black">AI-Driven Data</span>
         </h1>
       </div>
     </motion.div>

@@ -23,9 +23,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Julia Huang — AI Artist & Architecture Designer",
+  title: "Heshva Soni — Research Intern @ SAC-ISRO | AI & ML Engineer",
   description:
-    "Julia Huang is an innovative AI artist redefining architecture with AI-driven design, crafting unique digital art experiences globally.",
+    "Portfolio of Heshva Soni, Research Intern at SAC-ISRO and IT Student building intelligent solutions with Data & Machine Learning.",
 };
 
 export default function RootLayout({

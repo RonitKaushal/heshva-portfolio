@@ -21,7 +21,7 @@ export const BioCard: React.FC<{ onReadMore?: () => void }> = ({ onReadMore }) =
       {/* Bio text */}
       <div className="mt-4 sm:mt-6 select-none">
         <p className="text-[13.5px] sm:text-[14.5px] md:text-[15px] leading-[1.55] font-normal text-[#2A2321]/90 tracking-[-0.01em]">
-          Julia Huang is an innovative AI artist, renowned for blending cutting-edge technology with creative expression. Based in LA, she crafts unique digital art experiences accessible globally.
+          Heshva Soni bridges the gap between complex data and user-centric applications. Currently researching at SAC-ISRO and pursuing B.Tech at IAR Gandhinagar, he builds intelligent AI solutions with data.
         </p>
       </div>
 

@@ -17,7 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
   const [activeItem, setActiveItem] = useState<string | null>(null);
 
   const navItems = [
-    { label: "PROJECTS", onClick: onOpenProjects },
+    { label: "EXPERIENCE", onClick: onOpenProjects },
     { label: "ABOUT", onClick: onOpenAbout },
     { label: "CONTACT", onClick: onOpenContact },
   ];
@@ -33,10 +33,10 @@ export const Header: React.FC<HeaderProps> = ({
         onClick={onOpenAbout}
       >
         <span className="font-cormorant italic text-xl sm:text-2xl tracking-wider text-[#221F1E] font-medium transition-transform group-hover:-translate-x-0.5">
-          JULIA
+          HESHVA
         </span>
         <span className="font-sans font-black text-lg sm:text-xl tracking-tight text-[#221F1E] transition-transform group-hover:translate-x-0.5">
-          HUANG
+          SONI
         </span>
       </motion.div>
 
