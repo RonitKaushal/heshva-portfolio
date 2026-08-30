@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, Calendar, Briefcase } from "lucide-react";
-import { ProjectItem } from "./ProjectsCard";
+import { ProjectItem } from "@/lib/data";
 
 interface ProjectModalProps {
   project: ProjectItem | null;

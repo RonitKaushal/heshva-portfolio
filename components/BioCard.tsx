@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { PulsingBurstIcon } from "./PulsingBurstIcon";
 
@@ -10,17 +11,17 @@ export const BioCard: React.FC<{ onReadMore?: () => void }> = ({ onReadMore }) =
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-      onClick={onReadMore}
-      className="relative w-full h-full min-h-[220px] sm:min-h-[240px] bg-[#FBEFE9] rounded-[28px] sm:rounded-[32px] p-6 sm:p-7 md:p-8 flex flex-col justify-between card-shadow card-hover-shadow border border-[#F2DDD4]/60 group cursor-pointer overflow-hidden"
+      className="relative w-full h-full min-h-0 bg-[#FBEFE9] rounded-[26px] sm:rounded-[30px] p-5 sm:p-6 md:p-7 flex flex-col justify-between card-shadow card-hover-shadow border border-[#F2DDD4]/60 group cursor-pointer overflow-hidden"
     >
+      <Link href="/about" className="absolute inset-0 z-20" />
       {/* Top left pulsing burst icon */}
-      <div className="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-500 group-hover:scale-110">
+      <div className="w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-500 group-hover:scale-110 shrink-0">
         <PulsingBurstIcon />
       </div>
 
       {/* Bio text */}
-      <div className="mt-4 sm:mt-6 select-none">
-        <p className="text-[13.5px] sm:text-[14.5px] md:text-[15px] leading-[1.55] font-normal text-[#2A2321]/90 tracking-[-0.01em]">
+      <div className="mt-2 sm:mt-3 select-none">
+        <p className="text-[12.5px] sm:text-[13.5px] md:text-[14px] leading-[1.45] font-normal text-[#2A2321]/90 tracking-[-0.01em]">
           Heshva Soni bridges the gap between complex data and user-centric applications. Currently researching at SAC-ISRO and pursuing B.Tech at IAR Gandhinagar, he builds intelligent AI solutions with data.
         </p>
       </div>
