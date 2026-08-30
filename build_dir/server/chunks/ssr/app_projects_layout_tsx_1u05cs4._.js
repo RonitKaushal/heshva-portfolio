@@ -1,3 +1,0 @@
-module.exports=[80823,a=>{"use strict";var b=a.i(7997);a.s(["default",0,function({children:a}){return(0,b.jsx)(b.Fragment,{children:a})},"metadata",0,{title:"Experience & Projects",description:"Explore Heshva Soni's machine learning research at SAC-ISRO, Python data pipelines at InfoLabz, software engineering at Techno IT Hub, and AI Geodata analysis projects.",alternates:{canonical:"https://heshvasoni.vercel.app/projects"},openGraph:{title:"Experience & Projects | Heshva Soni",description:"Explore Heshva Soni's research at SAC-ISRO, Python ML workflows, and AI Geodata analytics.",url:"https://heshvasoni.vercel.app/projects",images:["/images/isro_geodata.jpg"]}}])},48853,function(a){a.n(a.i(80823))}];
-
-//# sourceMappingURL=app_projects_layout_tsx_1u05cs4._.js.map

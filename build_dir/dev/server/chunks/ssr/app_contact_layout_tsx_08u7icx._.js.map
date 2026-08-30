@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/macbookprom1/Developer/Heshav%20Portfolio/app/contact/layout.tsx"],"sourcesContent":["import type { Metadata } from \"next\";\n\nexport const metadata: Metadata = {\n  title: \"Contact Heshva Soni\",\n  description:\n    \"Get in touch with Heshva Soni for Machine Learning collaborations, research opportunities, or software development inquiries. Email: heshvasoni1006@gmail.com.\",\n  alternates: {\n    canonical: \"https://heshvasoni.vercel.app/contact\",\n  },\n  openGraph: {\n    title: \"Contact Heshva Soni | AI & ML Engineer\",\n    description:\n      \"Direct communication channel with Heshva Soni: heshvasoni1006@gmail.com, Greater Ahmedabad Area, Gujarat, India.\",\n    url: \"https://heshvasoni.vercel.app/contact\",\n  },\n};\n\nexport default function ContactLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return <>{children}</>;\n}\n"],"names":["metadata","title","description","alternates","canonical","openGraph","url","ContactLayout","children"],"mappings":";;;;;;;;AAEO,MAAMA,WAAqB;IAChCC,OAAO;IACPC,aACE;IACFC,YAAY;QACVC,WAAW;IACb;IACAC,WAAW;QACTJ,OAAO;QACPC,aACE;QACFI,KAAK;IACP;AACF;AAEe,SAASC,cAAc,EACpCC,QAAQ,EAGT;IACC,qBAAO;kBAAGA;;;;;;AACZ"}}]
-}
