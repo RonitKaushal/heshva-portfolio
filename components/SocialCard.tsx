@@ -20,8 +20,8 @@ export const SocialCard: React.FC = () => {
     },
     {
       label: "GITHUB",
-      href: "https://github.com/heshvaa",
-      handle: "github.com/heshvaa",
+      href: "https://github.com/Heshva",
+      handle: "github.com/Heshva",
     },
     {
       label: "PORTFOLIO",

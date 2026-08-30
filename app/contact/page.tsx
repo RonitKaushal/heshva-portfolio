@@ -31,7 +31,7 @@ export default function ContactPage() {
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard?.writeText("heshvasoni1006@gmail.com");
+    navigator.clipboard?.writeText("heshvaasoni@gmail.com");
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
@@ -65,7 +65,7 @@ export default function ContactPage() {
                 Let&apos;s <span className="font-serif-italic italic font-normal text-[#2A2321]">Connect</span>
               </h1>
               <p className="text-sm text-[#2A2321]/80 mt-2 leading-relaxed">
-                Have an AI/ML idea, research opportunity, or data challenge? Reach out anytime!
+                Have a research collaboration, ML project, or internship opportunity? I&apos;d love to hear from you!
               </p>
 
               {/* Direct Info Pills */}
@@ -79,7 +79,7 @@ export default function ContactPage() {
                       <p className="text-[11px] font-bold uppercase tracking-wider text-[#221F1E]/60">
                         Email Me
                       </p>
-                      <p className="text-xs font-bold text-[#221F1E]">heshvasoni1006@gmail.com</p>
+                      <p className="text-xs font-bold text-[#221F1E]">heshvaasoni@gmail.com</p>
                     </div>
                   </div>
                   <button
@@ -125,7 +125,7 @@ export default function ContactPage() {
                 </a>
 
                 <a
-                  href="https://github.com/heshvaa"
+                  href="https://github.com/Heshva"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 p-3 bg-[#F4E1D7] hover:bg-[#F99B8D] rounded-2xl flex items-center justify-center gap-2 text-xs font-bold text-[#221F1E] transition-colors cursor-pointer"
@@ -167,7 +167,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-[#221F1E]">Message Sent Successfully!</h3>
                 <p className="text-sm text-[#221F1E]/70 max-w-sm">
-                  Thank you for getting in touch. Heshva will respond to your email as soon as possible.
+                  Thank you for reaching out! Heshva will get back to you as soon as possible.
                 </p>
               </motion.div>
             ) : (

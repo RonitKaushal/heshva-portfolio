@@ -22,7 +22,7 @@ export const BioCard: React.FC<{ onReadMore?: () => void }> = ({ onReadMore }) =
       {/* Bio text */}
       <div className="mt-2 sm:mt-3 select-none">
         <p className="text-[12.5px] sm:text-[13.5px] md:text-[14px] leading-[1.45] font-normal text-[#2A2321]/90 tracking-[-0.01em]">
-          Heshva Soni bridges the gap between complex data and user-centric applications. Currently researching at SAC-ISRO and pursuing B.Tech at IAR Gandhinagar, he builds intelligent AI solutions with data.
+          Heshva Soni is a researcher and engineer who transforms complex data into meaningful solutions. She&apos;s currently interning at SAC-ISRO and pursuing her B.Tech at IAR Gandhinagar — building intelligent AI systems with Python and ML.
         </p>
       </div>
 

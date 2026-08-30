@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Header } from "@/components/Header";
 import { HeroTitleCard } from "@/components/HeroTitleCard";
 import { PortraitCard } from "@/components/PortraitCard";
@@ -8,12 +8,8 @@ import { BioCard } from "@/components/BioCard";
 import { ContactCard } from "@/components/ContactCard";
 import { ProjectsCard } from "@/components/ProjectsCard";
 import { SocialCard } from "@/components/SocialCard";
-import { ProjectItem, experiencesData } from "@/lib/data";
-import { ProjectModal } from "@/components/ProjectModal";
 
 export default function Home() {
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
-
   return (
     <main className="h-screen w-screen overflow-hidden bg-[#F7E7DF] flex items-center justify-center p-2.5 sm:p-4 md:p-5 lg:p-6 font-sans select-none">
       {/* Outer Rounded Container Frame */}
@@ -56,7 +52,7 @@ export default function Home() {
           <div className="lg:col-span-4 flex flex-col justify-between gap-3 sm:gap-4 md:gap-4.5 h-full min-h-0">
             {/* Top: Projects Showcase Card */}
             <div className="flex-1 flex min-h-0">
-              <ProjectsCard onSelectProject={(p) => setSelectedProject(p)} />
+              <ProjectsCard />
             </div>
 
             {/* Bottom: Social Links Bar */}
@@ -66,12 +62,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* Project Detail Modal */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
     </main>
   );
 }
