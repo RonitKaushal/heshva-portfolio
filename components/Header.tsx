@@ -35,11 +35,8 @@ export const Header: React.FC<HeaderProps> = ({
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex items-center gap-1.5"
         >
-          <span className="font-cormorant italic text-xl sm:text-2xl tracking-wider text-[#221F1E] font-medium transition-transform group-hover:-translate-x-0.5">
-            HESHVA
-          </span>
-          <span className="font-sans font-black text-lg sm:text-xl tracking-tight text-[#221F1E] transition-transform group-hover:translate-x-0.5">
-            SONI
+          <span className="font-sans font-black text-xl sm:text-2xl tracking-widest text-[#221F1E]">
+            HESHVA SONI
           </span>
         </motion.div>
       </Link>
